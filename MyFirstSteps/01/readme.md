@@ -7,6 +7,68 @@
 
 - Hash: 6a4bd97 Bare Minimum
 
+## Key points
+
+### Building an extension
+
+Run `phpize` from the code directory to generate the `./configure` script, you'll see output similar to the following:
+
+```
+Configuring for:
+PHP Api Version:         20170718
+Zend Module Api No:      20170718
+Zend Extension Api No:   320170718
+```
+
+These numbers indicate (roughly) the PHP version.  Specifically:
+
+#### PHP Api Version
+
+This comes from the constant `PHP_API_VERSION` defined in [main/php.h](https://github.com/php/php-src/blob/df4edde870ef42fdd8397f9d67c6c9b5d9b74bac/main/php.h#L29). Changes in this number indicate a change in C APIs exported by the "php" half of php-src (ext, main, and sapi directories).
+
+#### Zend Module Api No
+
+This comes from the constan `ZEND_MODULE_API` defined in [Zend/zend\_modules.h](https://github.com/php/php-src/blob/df4edde870ef42fdd8397f9d67c6c9b5d9b74bac/Zend/zend_modules.h#L36). Changes in this number indicate a change in C APIs exported by the "Zend" half of php-src (Zend and TSRM directories)
+
+#### Zend Extension Api No
+
+This comes from the constant `ZEND_EXTENSION_API_NO` defined in [Zend/zend\_extensions.h](https://github.com/php/php-src/blob/df4edde870ef42fdd8397f9d67c6c9b5d9b74bac/Zend/zend_extensions.h#L49). Changes in this number indicate a change in the core scripting engine API and the hooks related to "zend extensions".  These are NOT the same thing as PHP extensons (which this exercise focuses on) and are usually safe to ignore until you're much deeper into the weeds.
+
+### Configure the build
+
+Run `./configure`, again from the code checkout, to generate the `Makefile`.  The output of this command is much longer, and should end with something like:
+
+```
+configure: creating ./config.status
+config.status: creating config.h
+```
+### Build the extension
+
+Run `make` from the same directory to compile the extension defined by the config.me file.  Your output will be verbose, but if all goes well, you'll see something like:
+
+```
+----------------------------------------------------------------------
+Libraries have been installed in:
+  $PWD/modules
+.
+.
+.
+Build complete.
+Don't forget to run 'make test'.
+```
+
+This tells you that the extension was compiled, and the synamic library can be found in the `modules/` directory.
+
+## Try the extension out
+
+From here the extension can be loaded via INI setting directly from the command line, along with any normal PHP invocation such as `-m` to list the loaded modules and see that it exists, `--re $EXTNAME` to view reflection info, or `-r 'hello();` to execute script code.
+
+```
+$ php -d extension=$PWD/modules/hello.so -m
+$ php -d extension=$PWD/modules/hello.so --re hello
+$ php -d extension=$PWD/modules/hello.so -r 'hello();' # This will fail, as we haven't defined the function yet.
+```
+
 ## My Questions
 
 - Is there any particular reason why use `if test "$PHP_HELLO" != "no"; then` over `if test "$PHP_HELLO" = "yes"; then` ?
