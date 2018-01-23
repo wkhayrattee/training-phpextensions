@@ -28,7 +28,7 @@ This comes from the constant `PHP_API_VERSION` defined in [main/php.h](https://g
 
 #### Zend Module Api No
 
-This comes from the constan `ZEND_MODULE_API` defined in [Zend/zend\_modules.h](https://github.com/php/php-src/blob/df4edde870ef42fdd8397f9d67c6c9b5d9b74bac/Zend/zend_modules.h#L36). Changes in this number indicate a change in C APIs exported by the "Zend" half of php-src (Zend and TSRM directories)
+This comes from the constant `ZEND_MODULE_API` defined in [Zend/zend\_modules.h](https://github.com/php/php-src/blob/df4edde870ef42fdd8397f9d67c6c9b5d9b74bac/Zend/zend_modules.h#L36). Changes in this number indicate a change in C APIs exported by the "Zend" half of php-src (Zend and TSRM directories)
 
 #### Zend Extension Api No
 
@@ -44,7 +44,7 @@ config.status: creating config.h
 ```
 ### Build the extension
 
-Run `make` from the same directory to compile the extension defined by the config.me file.  Your output will be verbose, but if all goes well, you'll see something like:
+Run `make` from the same directory to compile the extension defined by the config.m4 file.  Your output will be verbose, but if all goes well, you'll see something like:
 
 ```
 ----------------------------------------------------------------------
@@ -57,7 +57,7 @@ Build complete.
 Don't forget to run 'make test'.
 ```
 
-This tells you that the extension was compiled, and the synamic library can be found in the `modules/` directory.
+This tells you that the extension was compiled, and the dynamic library can be found in the `modules/` directory.
 
 ## Try the extension out
 
