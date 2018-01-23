@@ -9,6 +9,9 @@
 
 ## My Questions
 
+- Is there any particular reason why use `if test "$PHP_HELLO" != "no"; then` over `if test "$PHP_HELLO" = "yes"; then` ?
+- Can you tell me more about the variable `$PHP_HELLO` - where does it come from & how it's managed by the PHP Core..etc?
+
 ## My Observations
 
 
