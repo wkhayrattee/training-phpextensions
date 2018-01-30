@@ -55,6 +55,10 @@ The function body we have in this simple example is as basic as they come.  The 
 
 ## My Questions
 
+1. With regards to `STANDARD_MODULE_HEADER`, what are the scenarios when a ***STANDARD_MODULE_HEADER*** can occur?
+2. What's the meaning of **ABI**?
+3. Where is the `PHP_FE` defined so I can see it's full definition?
+
 ## My Observations
 
 
