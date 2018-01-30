@@ -58,9 +58,30 @@ The function body we have in this simple example is as basic as they come.  The 
 1. With regards to `STANDARD_MODULE_HEADER`, what are the scenarios when a ***STANDARD_MODULE_HEADER*** can occur?
 2. What's the meaning of **ABI**?
 3. Where is the `PHP_FE` defined so I can see it's full definition?
+4. I got a warning **Clock skew detected**, see below in observation. How to fix it? (I have tried all suggestions in [here](https://stackoverflow.com/questions/3824500/compiling-c-on-remote-linux-machine-clock-skew-detected-warning), but in vain)
 
 ## My Observations
 
+- My first two runs of "building the extension with 02", gave the following after executing `$ make`:
+    > make: warning:  Clock skew detected.  Your build may be incomplete.
+
+- OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so --re hello`
+    > Extension [ <persistent> extension #70 hello version <no_version> ] {
+      
+        - Functions {
+          Function [ <internal:hello> function hello_world ] {
+          }
+        }
+      }
+    
+- OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so -r 'hello();'`
+    > PHP Fatal error:  Uncaught Error: Call to undefined function hello() in Command line code:1
+      Stack trace:
+      #0 {main}
+        thrown in Command line code on line 1
+
+    - SOLUTION, I have just correct `hello();` to `hello_world()` obviously and the following expected OUTPUT:
+        > Hello World!
 
 
 # Total Repo Objectives
