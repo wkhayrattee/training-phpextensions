@@ -8,3 +8,9 @@
 
 - Get started with PHP Extensions
 - Create a PHP 7 compatible wrapper for [https://github.com/LMDB/lmdb](LMDB) - something similar to [https://github.com/mpremus/lmdb-php](https://github.com/mpremus/lmdb-php)
+
+
+### Questions For Later (After the initial training is done)
+
+- Is there a different approach to create an extension for multi-process & multi-threaded?
+- How to approach the creation of the php extension, so that it's both PHP 5.6+ & PHP 7+ compatible?
