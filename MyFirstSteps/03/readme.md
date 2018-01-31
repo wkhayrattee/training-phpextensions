@@ -73,6 +73,8 @@ These macros are all implemented in [Zend/zend\_API.h](https://github.com/php/ph
 
 ## My Questions
 
+- Trivial question probably, why is it that in observation #4 below, the output is `42#` with a hash after the 42?
+
 ## My Observations
 
 1. OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so --re hello`
