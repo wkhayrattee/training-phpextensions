@@ -75,7 +75,7 @@ These macros are all implemented in [Zend/zend\_API.h](https://github.com/php/ph
 
 ## My Observations
 
-- OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so --re hello`
+1. OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so --re hello`
     > Extension [ <persistent> extension #70 hello version <no_version> ] {
        - Functions {
          Function [ <internal:hello> function hello_world ] {
@@ -87,10 +87,14 @@ These macros are all implemented in [Zend/zend\_API.h](https://github.com/php/ph
        }
      }
     
-- OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so -r 'hello_world();'`
+2. OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so -r 'hello_world();'`
     > Hello World!
 
-
+3. OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so -r 'echo hello_return();'`
+    > Hello World!
+    
+4. OUTPUT when I executed `$ php -d extension=$PWD/modules/hello.so -r 'echo hello_number();'`
+    > 42#
 
 # Total Repo Objectives
 
