@@ -14,3 +14,8 @@
 
 - Is there a different approach to create an extension for multi-process & multi-threaded?
 - How to approach the creation of the php extension, so that it's both PHP 5.6+ & PHP 7+ compatible?
+
+## Observations
+- Revisiting **Macros** would be an advantage:
+    - https://www.cprogramming.com/tutorial/cpreprocessor.html
+    - https://gcc.gnu.org/onlinedocs/cpp/Macros.html
