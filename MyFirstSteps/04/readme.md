@@ -9,6 +9,9 @@
 
 ## My Questions
 
+1. In `size_t name_len;` why do we use `size_t` instead of `int`. As per my reading only, `size_t` can hold any array index - not sure if that is the reason
+2. Why use `size_t` with PHP 7 and not PHP 5 and vice-versa
+
 ## My Observations
 
 
