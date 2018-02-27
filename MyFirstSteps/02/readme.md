@@ -56,9 +56,13 @@ The function body we have in this simple example is as basic as they come.  The 
 ## My Questions
 
 1. With regards to `STANDARD_MODULE_HEADER`, what are the scenarios when a ***STANDARD_MODULE_HEADER*** can occur?
+  * STANDARD\_MODULE\_HEADER (defined in Zend/zend\_moudles.h) contains information about the PHP runtime the extension was built for.  Specifically, things like ZEND\_MODULE\_API\_NO indicating the PHP version, and ZEND\_DEBUG and USING\_ZTS to indicate essential build flags.
 2. What's the meaning of **ABI**?
+  * Application Binary Interface.  Similar in principle to API (which deals with source code interfaces), ABI deals with the specific function pointers being invoked and the types of its arguments/returns.  This aren't necessarily 1:1 mappings, since a macro or inline function may define a concrete API, but it can map to an arbitrarily different ABI.
 3. Where is the `PHP_FE` defined so I can see it's full definition?
+  * `main/php.h` maps a bunch of `Zend` APIs to PHP names.  Originally this was intended to make PHP be engine independent, but that never really came to fruition.  `PHP_FE` maps to `ZEND_FE`, which you can find in `Zend/zend_API.h`.
 4. I got a warning **Clock skew detected**, see below in observation. How to fix it? (I have tried all suggestions in [here](https://stackoverflow.com/questions/3824500/compiling-c-on-remote-linux-machine-clock-skew-detected-warning), but in vain)
+  * It generally means that the times associated with your source files (atime, mtime, ctime) are in the future according to the system where you are compiling.  Make sure your system clock is correct.
 
 ## My Observations
 
