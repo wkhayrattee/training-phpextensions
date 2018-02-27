@@ -74,6 +74,7 @@ These macros are all implemented in [Zend/zend\_API.h](https://github.com/php/ph
 ## My Questions
 
 - Trivial question probably, why is it that in observation #4 below, the output is `42#` with a hash after the 42?
+  * Uh... I can't imagine, actually.  Fat-finger?  Nothing about PHP would intentionally output that hash.
 
 ## My Observations
 
